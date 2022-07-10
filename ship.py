@@ -1,33 +1,48 @@
 import pygame
+from pygame import transform
+
+from pygame.sprite import Sprite
 
 
-class Ship:
-    """Класс управления главным героем (кораблём)"""
+class Ship(Sprite):
     def __init__(self, ai_game):
-        # Инициализируем корабль и задаём его стартовую позицию:
+        super().__init__()
         self.screen = ai_game.screen
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
-        # Загружаем изображение корабля и оформляем его в прямоугольник:
-        self.image = pygame.image.load('images/ship_blue.bmp')  # Достаём нужную картинку
+        self.image = pygame.image.load('images/ship_new.png')
         self.rect = self.image.get_rect()
-        # Каждый новый корабль появляется у нижнего края экрана:
         self.rect.midbottom = self.screen_rect.midbottom
-        # Сохранение координаты центра корабля
         self.x = float(self.rect.x)
-        # Флаг движения вправо
         self.moving_right = False
         self.moving_left = False
 
     def update(self):
-        """Обновляем позицию с учётом флага"""
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.ship_speed
-        # На основании self.x обновляем rect, который отвечает за позицию корабля:
         self.rect.x = self.x
 
     def blitme(self):
-        """Выводим на экран корабль в текущей позиции"""
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)
+
+
+class ScoreShip(Ship):
+    def __init__(self, ai_game):
+        super().__init__(ai_game)
+        self.image = pygame.image.load('images/ship_new.png')
+        self.image = transform.scale(self.image, (25, 20))
+        self.rect = self.image.get_rect()
+
+
+class ScoreRocket(Ship):
+    def __init__(self, ai_game):
+        super().__init__(ai_game)
+        self.image = pygame.image.load('images/bomb.png')
+        self.image = transform.scale(self.image, (25, 20))
+        self.rect = self.image.get_rect()
