@@ -5,7 +5,7 @@ The project is based on the "Python crash course" book by E.Matthes with some ne
 HOW TO PLAY:
 The goal is to destroy the alien invaders fleet before enemy ships reach you.
 
-press "O" to start the game
-press "P" to pause and "C" to continue the game
-press "SPACE" to fire bullets
-press "R" to fire rockets (only 12 allowed per tour)
+- press "O" to start the game
+- press "P" to pause and "C" to continue the game
+- press "SPACE" to fire bullets
+- press "R" to fire rockets (only 12 allowed per tour)
