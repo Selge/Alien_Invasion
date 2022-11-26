@@ -137,7 +137,6 @@ class Scoreboard:
         self.rockets.draw(self.screen)
 
 
-# Main class. The Game itself
 class AlienInvasion:
 
     def __init__(self):
@@ -494,5 +493,4 @@ class Button:
 
 
 if __name__ == '__main__':
-    ai = AlienInvasion()
-    ai.run_game()
+    AlienInvasion().run_game()

@@ -6,15 +6,15 @@ The project is based on the **"Python crash course"** book by **E.Matthes** with
 
 ### Project inspirer:
 
-[![](PCC_EM.jpg)](https://github.com/ehmatthes)
+[![](images/PCC_EM.jpg)](https://github.com/ehmatthes)
 
 ### Project technologies:
 
-[![](python-logo.png)](https://www.python.org/)
+[![](images/python-logo.png)](https://www.python.org/)
 
 > Python 3 (I used Python 3.9)
 
-[![](PyGame.png)](https://www.pygame.org/)
+[![](images/PyGame.png)](https://www.pygame.org/)
  
 > Pygame
 
