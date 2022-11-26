@@ -81,6 +81,10 @@ class GameStats:
         self.level = 1
 
 
+class Menu:
+    pygame.init()
+
+
 class Scoreboard:
     def __init__(self, ufo_game):
         self.ufo_game = ufo_game
