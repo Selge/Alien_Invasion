@@ -14,7 +14,6 @@ class Settings:
         self.screen_width = 1000
         self.screen_height = 600
         self._color = (28, 28, 28)
-        # self.bg = pygame.image.load('images/nightsky_background.jpg')
         self.bg = Background('images/nightsky_background.jpg', [0, 0])
         # ship
         self.ship_limit = 5
@@ -143,7 +142,7 @@ class AlienInvasion:
         pygame.init()
         self.settings = Settings()
         self.screen = pygame.display.set_mode((1000, 800))
-        pygame.display.set_caption("Alien Invasion")
+        pygame.display.set_caption("U.F.O. 77")
         self.stats = GameStats(self)
         self.sb = Scoreboard(self)
         self.ship = Ship(self)
