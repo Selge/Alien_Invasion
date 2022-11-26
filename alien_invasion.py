@@ -68,8 +68,8 @@ class Sounds:
 
 
 class GameStats:
-    def __init__(self, ai_game):
-        self.settings = ai_game.settings
+    def __init__(self, ufo_game):
+        self.settings = ufo_game.settings
         self.reset_stats()
         self.game_active = False
         self.high_score = 0
@@ -82,12 +82,12 @@ class GameStats:
 
 
 class Scoreboard:
-    def __init__(self, ai_game):
-        self.ai_game = ai_game
-        self.screen = ai_game.screen
+    def __init__(self, ufo_game):
+        self.ufo_game = ufo_game
+        self.screen = ufo_game.screen
         self.screen_rect = self.screen.get_rect()
-        self.settings = ai_game.settings
-        self.stats = ai_game.stats
+        self.settings = ufo_game.settings
+        self.stats = ufo_game.stats
         self.text_color = (255, 250, 250)
         self.font = pygame.font.SysFont('SH Pinscher', 20)
         self.prep_score()
@@ -113,7 +113,7 @@ class Scoreboard:
     def prep_ships(self):
         self.ships = Group()
         for ship_number in range(self.stats.ships_left):
-            ship = ScoreShip(self.ai_game)
+            ship = ScoreShip(self.ufo_game)
             ship.rect.x = 10 + ship_number * ship.rect.width
             ship.rect.y = 10
             self.ships.add(ship)
@@ -121,7 +121,7 @@ class Scoreboard:
     def prep_rockets(self):
         self.rockets = Group()
         for rocket_number in range(self.stats.rockets_left):
-            rocket = ScoreRocket(self.ai_game)
+            rocket = ScoreRocket(self.ufo_game)
             rocket.rect.x = 200 + rocket_number * rocket.rect.width
             rocket.rect.y = 10
             self.rockets.add(rocket)
@@ -370,11 +370,11 @@ class AlienInvasion:
 
 
 class Ship(Sprite):
-    def __init__(self, ai_game):
+    def __init__(self, ufo_game):
         super().__init__()
-        self.screen = ai_game.screen
-        self.settings = ai_game.settings
-        self.screen_rect = ai_game.screen.get_rect()
+        self.screen = ufo_game.screen
+        self.settings = ufo_game.settings
+        self.screen_rect = ufo_game.screen.get_rect()
         self.image = pygame.image.load('images/ship_new.png')
         self.rect = self.image.get_rect()
         self.rect.midbottom = self.screen_rect.midbottom
@@ -398,26 +398,26 @@ class Ship(Sprite):
 
 
 class ScoreShip(Ship):
-    def __init__(self, ai_game):
-        super().__init__(ai_game)
+    def __init__(self, ufo_game):
+        super().__init__(ufo_game)
         self.image = pygame.image.load('images/ship_new.png')
         self.image = transform.scale(self.image, (25, 20))
         self.rect = self.image.get_rect()
 
 
 class ScoreRocket(Ship):
-    def __init__(self, ai_game):
-        super().__init__(ai_game)
+    def __init__(self, ufo_game):
+        super().__init__(ufo_game)
         self.image = pygame.image.load('images/bomb.png')
         self.image = transform.scale(self.image, (25, 20))
         self.rect = self.image.get_rect()
 
 
 class Alien(Sprite):
-    def __init__(self, ai_game):
+    def __init__(self, ufo_game):
         super().__init__()
-        self.screen = ai_game.screen
-        self.settings = ai_game.settings
+        self.screen = ufo_game.screen
+        self.settings = ufo_game.settings
         self.image = pygame.image.load('images/alien_white_28.png')
         self.rect = self.image.get_rect()
         self.rect.x = self.rect.width
@@ -435,13 +435,13 @@ class Alien(Sprite):
 
 
 class Bullet(Sprite):
-    def __init__(self, ai_game):
+    def __init__(self, ufo_game):
         super().__init__()
-        self.screen = ai_game.screen
-        self.settings = ai_game.settings
+        self.screen = ufo_game.screen
+        self.settings = ufo_game.settings
         self.color = self.settings.bullet_color
         self.rect = pygame.Rect(0, 0, self.settings.bullet_width, self.settings.bullet_height)
-        self.rect.midtop = ai_game.ship.rect.midtop
+        self.rect.midtop = ufo_game.ship.rect.midtop
         self.y = float(self.rect.y)
 
     def update(self):
@@ -453,13 +453,13 @@ class Bullet(Sprite):
 
 
 class Rocket(Sprite):
-    def __init__(self, ai_game):
+    def __init__(self, ufo_game):
         super().__init__()
-        self.screen = ai_game.screen
-        self.settings = ai_game.settings
+        self.screen = ufo_game.screen
+        self.settings = ufo_game.settings
         self.color = self.settings.rocket_color
         self.rect = pygame.Rect(0, 0, self.settings.rocket_width, self.settings.rocket_height)
-        self.rect.midtop = ai_game.ship.rect.midtop
+        self.rect.midtop = ufo_game.ship.rect.midtop
         self.y = float(self.rect.y)
 
     def update(self):
@@ -471,8 +471,8 @@ class Rocket(Sprite):
 
 
 class Button:
-    def __init__(self, ai_game, msg):
-        self.screen = ai_game.screen
+    def __init__(self, ufo_game, msg):
+        self.screen = ufo_game.screen
         self.screen_rect = self.screen.get_rect()
         self.width, self.height = 200, 50
         self.button_color = (128, 128, 128)
