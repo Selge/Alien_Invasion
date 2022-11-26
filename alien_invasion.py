@@ -84,6 +84,15 @@ class GameStats:
 class Menu:
     pygame.init()
 
+    def set_ship_color(self):
+        pass
+
+    def set_difficulty(self):
+        pass
+
+    def start_the_game(self):
+        pass
+
 
 class Scoreboard:
     def __init__(self, ufo_game):
