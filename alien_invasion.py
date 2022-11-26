@@ -83,6 +83,7 @@ class GameStats:
 
 class Menu:
     pygame.init()
+    surface = pygame.display.set_mode((1000, 800))
 
     def set_ship_color(self):
         pass
