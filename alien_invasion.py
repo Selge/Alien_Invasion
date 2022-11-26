@@ -2,6 +2,7 @@ import sys
 from time import sleep
 
 import pygame
+import pygame_menu
 import pygame.font
 from pygame import transform
 from pygame.sprite import Group
