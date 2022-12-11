@@ -85,6 +85,9 @@ class Menu:
     pygame.init()
     surface = pygame.display.set_mode((1000, 800))
 
+    def __init__(self, ufo_game):
+        pass
+
     def set_ship_color(self):
         pass
 
