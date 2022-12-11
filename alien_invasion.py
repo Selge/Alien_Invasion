@@ -194,6 +194,7 @@ class AlienInvasion:
         pygame.mouse.set_visible(False)
         Sounds.soundtrack_sound.play()
 
+    @staticmethod
     def paused(self):
         pause = True
         while pause:
