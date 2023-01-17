@@ -2,7 +2,6 @@ import sys
 from time import sleep
 
 import pygame
-import pygame_menu
 import pygame.font
 from pygame import transform
 from pygame.sprite import Group
@@ -79,23 +78,6 @@ class GameStats:
         self.rockets_left = self.settings.rocket_limit
         self.score = 0
         self.level = 1
-
-
-class Menu:
-    pygame.init()
-    surface = pygame.display.set_mode((1000, 800))
-
-    def __init__(self, ufo_game):
-        pass
-
-    def set_ship_color(self):
-        pass
-
-    def set_difficulty(self):
-        pass
-
-    def start_the_game(self):
-        pass
 
 
 class Scoreboard:
@@ -243,7 +225,7 @@ class AlienInvasion:
         elif event.key == pygame.K_o:
             self.start_game()
         elif event.key == pygame.K_p:
-            self.paused()
+            self.paused(self)
 
     def _check_keyup_events(self, event):
         if event.key == pygame.K_RIGHT:
